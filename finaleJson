@@ -1,0 +1,480 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "liberty life",
+            "intents": [
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "bookAppointmentIntent",
+                    "slots": [
+                        {
+                            "name": "shop",
+                            "type": "AMAZON.DE_FIRST_NAME",
+                            "samples": [
+                                "{shop}"
+                            ]
+                        },
+                        {
+                            "name": "customerType",
+                            "type": "customerTypeSlot",
+                            "samples": [
+                                "i'm {customerType}",
+                                "{customerType}"
+                            ]
+                        },
+                        {
+                            "name": "reasonForVisit",
+                            "type": "reasonForVisitSlot",
+                            "samples": [
+                                "{reasonForVisit}"
+                            ]
+                        },
+                        {
+                            "name": "date",
+                            "type": "AMAZON.DATE",
+                            "samples": [
+                                "{date}"
+                            ]
+                        },
+                        {
+                            "name": "time",
+                            "type": "AMAZON.TIME",
+                            "samples": [
+                                "{time} "
+                            ]
+                        },
+                        {
+                            "name": "firstName",
+                            "type": "firstNameSlot",
+                            "samples": [
+                                "{firstName}"
+                            ]
+                        },
+                        {
+                            "name": "lastName",
+                            "type": "lastNameSlot",
+                            "samples": [
+                                "{lastName}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "okay {shop}",
+                        "select {shop}",
+                        "go with {shop}",
+                        "{shop} "
+                    ]
+                },
+                {
+                    "name": "locationOptionIntent",
+                    "slots": [
+                        {
+                            "name": "location",
+                            "type": "locationSlot"
+                        }
+                    ],
+                    "samples": [
+                        "anything else",
+                        "few more",
+                        "more",
+                        "some more",
+                        "find more"
+                    ]
+                },
+                {
+                    "name": "AMAZON.YesIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NoIntent",
+                    "samples": []
+                }
+            ],
+            "types": [
+                {
+                    "name": "customerTypeSlot",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "broker"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "guest"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "provider"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "member"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "reasonForVisitSlot",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "pay my bill",
+                                "synonyms": [
+                                    "pay bill"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "firstNameSlot",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "Juliana"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "lastNameSlot",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "Rozario"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "bookAnAppointmentSlot",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "book an appointment on"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "AMAZON.DE_FIRST_NAME",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "hello"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "shopSlot",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "zabi"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "julie"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "locationSlot",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "10002"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "70501"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "10001"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "bookAppointmentIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "shop",
+                            "type": "AMAZON.DE_FIRST_NAME",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.809565359032.1240616036289"
+                            }
+                        },
+                        {
+                            "name": "customerType",
+                            "type": "customerTypeSlot",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.705436269096.881900164283"
+                            },
+                            "validations": [
+                                {
+                                    "type": "hasEntityResolutionMatch",
+                                    "prompt": "Slot.Validation.509158725593.171213258155.354602694119"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "reasonForVisit",
+                            "type": "reasonForVisitSlot",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.705436269096.1450267020860"
+                            },
+                            "validations": [
+                                {
+                                    "type": "hasEntityResolutionMatch",
+                                    "prompt": "Slot.Validation.509158725593.877763290758.1314091898419"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "date",
+                            "type": "AMAZON.DATE",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.705436269096.1522162790265"
+                            }
+                        },
+                        {
+                            "name": "time",
+                            "type": "AMAZON.TIME",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.705436269096.560813587181"
+                            }
+                        },
+                        {
+                            "name": "firstName",
+                            "type": "firstNameSlot",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.237267334150.1457284550968"
+                            }
+                        },
+                        {
+                            "name": "lastName",
+                            "type": "lastNameSlot",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.237267334150.312279183898"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "delegationStrategy": "SKILL_RESPONSE"
+        },
+        "prompts": [
+            {
+                "id": "Elicit.Slot.705436269096.1059353026716",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Please select a valid shop"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.705436269096.881900164283",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "ok what type of customer you are. Are you a Provider, member, broker or a guest user"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.705436269096.1450267020860",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "fine. can you tell me the purpose of booking appointment"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.705436269096.1522162790265",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Got it. on which date do you want to book an appointment"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.705436269096.560813587181",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "on which time?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.705436269096.1508779288308",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Please select a valid name"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.705436269096.741414748497",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Please select a valid name"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.582883087433.384378479383",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "tell me shop"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.580798224354.989834598346",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "i want this"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.809565359032.1240616036289",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Please select a valid shop"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.844675209995",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Do you want to confirm your appointment"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.628481063292.1298389546302",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "tell you firstname"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.628481063292.942742681543",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "tell your lastname"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.947042478203",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Are you sure you want to confirm the booking?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.237267334150.1457284550968",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "enter your first name"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.237267334150.312279183898",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "enter your last name"
+                    }
+                ]
+            },
+            {
+                "id": "Slot.Validation.509158725593.171213258155.354602694119",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Are you Broker, Member, Provider or Guest user?"
+                    }
+                ]
+            },
+            {
+                "id": "Slot.Validation.509158725593.877763290758.1314091898419",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "give me a reason like buying or renewing insurance, benefit questions, paying bills or regarding general information"
+                    }
+                ]
+            }
+        ]
+    }
+}
